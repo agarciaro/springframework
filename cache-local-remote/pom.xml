@@ -47,19 +47,24 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>1.6.6</version>
+			</dependency>
+			<dependency>
 				<groupId>com.curso.spring</groupId>
 				<artifactId>core-service</artifactId>
-				<version>${project-version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.curso.spring</groupId>
 				<artifactId>cache-service</artifactId>
-				<version>${project-version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.curso.spring</groupId>
 				<artifactId>socios-service</artifactId>
-				<version>${project-version}</version>
+				<version>${project.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
