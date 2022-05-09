@@ -1,6 +1,7 @@
 package com.curso.spring.cache.aspect;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -13,6 +14,7 @@ import com.curso.spring.cache.service.CacheManager;
 import com.curso.spring.core.model.RestApiError;
 
 @RestControllerAdvice
+@ConditionalOnProperty(name = "com.curso.spring.cache.enabled", havingValue = "true")
 public class CacheRestErrorHandler {
 	
 	@Autowired

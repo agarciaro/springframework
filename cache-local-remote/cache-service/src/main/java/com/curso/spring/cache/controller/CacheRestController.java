@@ -3,6 +3,7 @@ package com.curso.spring.cache.controller;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.curso.spring.cache.service.CacheManager;
 
 @RestController
 @RequestMapping("/api/cache")
+@ConditionalOnExpression("${com.curso.spring.cache.enabled} == true and ${com.curso.spring.cache.remote} == true")
 public class CacheRestController {
 	
 	@Autowired
