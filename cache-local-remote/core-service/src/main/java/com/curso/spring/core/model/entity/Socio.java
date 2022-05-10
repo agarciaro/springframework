@@ -1,34 +1,31 @@
 package com.curso.spring.core.model.entity;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString.Exclude;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Director {
-	
+public class Socio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	@Column(nullable = false)
 	private String nombre;
+	@Column(unique = true, nullable = false)
+	private String dni;
 	
-	@Exclude
-	@ManyToMany(mappedBy = "directores")
-	private Set<Pelicula> peliculas;
-	
+	@ManyToOne
+	@JoinColumn(name= "referido_por" , referencedColumnName = "id")
+	private Socio referidoPor;
 }

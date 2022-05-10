@@ -20,11 +20,5 @@ public class SociosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SociosApplication.class, args);
 	}
-	
-	@PostConstruct
-	public void init() {
-		log.info("SociosRaw {}", sociosService.findAll());
-		log.info("SociosCached {}", sociosService.findAll());
-	}
 
 }

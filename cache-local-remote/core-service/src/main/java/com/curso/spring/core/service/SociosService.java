@@ -2,10 +2,12 @@ package com.curso.spring.core.service;
 
 import java.util.List;
 
-import com.curso.spring.core.model.Socio;
+import com.curso.spring.core.model.SocioDto;
 
 public interface SociosService {
 	
-	public List<Socio> findAll();
+	public List<SocioDto> findAll();
+
+	List<SocioDto> findAllMock();
 	
 }

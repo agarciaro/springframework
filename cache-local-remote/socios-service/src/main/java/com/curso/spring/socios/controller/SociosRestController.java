@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.spring.core.model.QueryParams;
-import com.curso.spring.core.model.Socio;
+import com.curso.spring.core.model.SocioDto;
 import com.curso.spring.core.service.SociosService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +27,7 @@ public class SociosRestController {
 	
 	@Operation(summary = "Devuelve los socios de la Base de Datos con un límite por defecto de 10")
 	@GetMapping
-	public List<Socio> findByFilter(@RequestParam(required = false) Integer limit) {
+	public List<SocioDto> findByFilter(@RequestParam(required = false) Integer limit) {
 		queryParams.setLimit(limit);
 
 		return sociosService.findAll();
