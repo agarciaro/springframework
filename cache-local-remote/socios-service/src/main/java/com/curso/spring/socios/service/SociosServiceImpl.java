@@ -66,7 +66,7 @@ public class SociosServiceImpl implements SociosService {
 		}
 	}
 
-	@Transactional(readOnly = true, propagation = Propagation.REQUIRED )
+	@Transactional(readOnly = true, propagation = Propagation.REQUIRED  )
 	@Override
 	public List<SocioDto> findAll() {
 		List<Socio> sociosEntity = sociosRepository.findAll();
