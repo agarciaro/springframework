@@ -66,6 +66,16 @@
 				<artifactId>socios-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.curso.spring</groupId>
+				<artifactId>security-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>0.9.1</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
@@ -73,5 +83,6 @@
 		<module>cache-service</module>
 		<module>socios-service</module>
 		<module>core-service</module>
+		<module>security-service</module>
 	</modules>
 </project>
