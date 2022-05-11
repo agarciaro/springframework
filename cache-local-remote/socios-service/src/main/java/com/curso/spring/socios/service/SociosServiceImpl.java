@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,7 +65,7 @@ public class SociosServiceImpl implements SociosService {
 	@Transactional(readOnly = true, propagation = Propagation.REQUIRED  )
 	@Override
 	public List<SocioDto> findAll() {
-		List<Socio> sociosEntity = sociosRepository.findAll();
+		List<Socio> sociosEntity = (List<Socio>) sociosRepository.findAll();
 		return sociosEntity.stream().map(e -> new SocioDto(e.getId(), e.getNombre())).collect(Collectors.toList());
 	}
 
