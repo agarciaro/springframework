@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.curso.spring.core.model.entity.Socio;
 
 @Repository
-public interface SociosRepository extends CrudRepository<Socio, Long> {
+public interface SociosSpringRepository extends CrudRepository<Socio, Long> {
 	
 	
 	public List<Socio> findByNombre(String nombre);

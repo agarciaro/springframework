@@ -2,7 +2,6 @@ package com.curso.spring.socios.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ import com.curso.spring.cache.annotation.Cacheame;
 import com.curso.spring.core.model.QueryParams;
 import com.curso.spring.core.model.SocioDto;
 import com.curso.spring.core.model.entity.Socio;
-import com.curso.spring.core.repository.SociosRepository;
+import com.curso.spring.core.repository.SociosJdbcRepository;
 import com.curso.spring.core.service.SociosService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,12 +24,8 @@ public class SociosServiceImpl implements SociosService {
 	private static List<SocioDto> SOCIOS;
 	
 	@Autowired
-	SociosRepository sociosRepository;
-	
-//	@Autowired
-//	@Qualifier("entityManager")
-//	EntityManager entityManager;
-	
+	SociosJdbcRepository sociosRepository;
+		
 	@Autowired
 	QueryParams queryParams;
 	
@@ -64,9 +59,8 @@ public class SociosServiceImpl implements SociosService {
 
 	@Transactional(readOnly = true, propagation = Propagation.REQUIRED  )
 	@Override
-	public List<SocioDto> findAll() {
-		List<Socio> sociosEntity = (List<Socio>) sociosRepository.findAll();
-		return sociosEntity.stream().map(e -> new SocioDto(e.getId(), e.getNombre())).collect(Collectors.toList());
+	public List<Socio> findAll() {
+		return sociosRepository.findAll();
 	}
 
 }
